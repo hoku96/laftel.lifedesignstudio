@@ -180,6 +180,12 @@
   .after-lab{font-family:var(--dp);font-weight:800;font-size:18px}
   .after-msg{font-size:13.5px;color:var(--muted);margin:8px 0 14px;line-height:1.8;font-weight:500}
   @media print{.after-cta,#shareBtn{display:none !important}}
+
+  /* ===== 折り返し・改行の整備（PC/スマホで文字が切れない・不自然に改行しない） ===== */
+  body{overflow-wrap:break-word;line-break:strict;word-break:auto-phrase}
+  h1,h2,h3,.hero-jp,.hero-sub,.mf-line,.mf-pin,.sec-lead,.vision-foot,.mv-card p,.feature-desc,.feature-tag,.closing-jp,.vw .g,.ev-gloss,.ev-note,.ev-empty,.ev-item p,.lede,.after-msg,.tagline-jp,.ce-gloss{text-wrap:balance}
+  .nb{display:inline-block;max-width:100%}
+  .phil{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -200,7 +206,7 @@
         <span class="soft">地・水・火・風・空 ── 人生の5分野を1〜5でセルフチェック。<br>30の質問に答えると、あなただけの星が完成します。</span>
       </p>
       <p class="lede" style="margin-top:18px;margin-bottom:18px">
-        <span class="soft">ライフデザインスタジオ『 LAFTEL. 』が掲げるのは、世界中のリーダーがバイブルとする伝説のサムライ・宮本武蔵（本名：新免武蔵）の『📜五輪書📜』に流れる思想🧠<br><br>その名を受け継ぐ代表・新免慧大が、4,000社を超える神社仏閣への巡礼⛩と厳しい修行の日々⚔を経て、大自然の理から導き出した【 \\\ 五輪哲学 ///// 】という人生の羅針盤。🧭🙏🏽</span>
+        <span class="soft phil"><span class="nb">ライフデザインスタジオ</span><span class="nb">『&nbsp;LAFTEL.&nbsp;』が掲げるのは、</span><span class="nb">世界中のリーダーが</span><span class="nb">バイブルとする</span><span class="nb">伝説のサムライ・宮本武蔵</span><span class="nb">（本名：新免武蔵）の</span><span class="nb">『📜五輪書📜』に</span><span class="nb">流れる思想🧠</span><br><br><span class="nb">その名を受け継ぐ</span><span class="nb">代表・新免慧大が、</span><span class="nb">4,000社を超える</span><span class="nb">神社仏閣への巡礼⛩と</span><span class="nb">厳しい修行の日々⚔を経て、</span><span class="nb">大自然の理から導き出した</span><span class="nb">【&nbsp;\\\\\ 五輪哲学 /////&nbsp;】という</span><span class="nb">人生の羅針盤。🧭🙏🏽</span></span>
       </p>
       <div class="chips">
         <span class="chip" style="--c:var(--fire)">火<i>情熱・創造</i></span>

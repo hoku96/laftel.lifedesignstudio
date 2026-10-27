@@ -68,7 +68,7 @@
     filter:drop-shadow(0 22px 36px rgba(142,91,242,.28))}
   .star-spin{width:100%;height:100%;transform-origin:50% 50%}
   .hero-headline{font-family:var(--dp);font-weight:800;letter-spacing:-.005em;line-height:.98;
-    font-size:clamp(42px,9vw,90px);margin-top:6px}
+    font-size:clamp(22px,8vw,90px);margin-top:6px}
   .hero-jp{font-weight:700;font-size:clamp(17px,3.4vw,25px);letter-spacing:.1em;color:var(--ink);margin-top:24px}
   .hero-sub{font-weight:500;font-size:14.5px;letter-spacing:.02em;color:var(--ink-soft);margin-top:16px}
   .scrollcue{margin-top:48px;display:inline-flex;flex-direction:column;align-items:center;gap:9px;
@@ -297,6 +297,12 @@
   .logo-closing{width:clamp(150px,30vw,210px);height:clamp(150px,30vw,210px);animation:bob 6s ease-in-out infinite;transition:transform .5s var(--spring)}
   .logo-closing:hover{animation-play-state:paused;transform:rotate(-8deg) scale(1.08)}
   @media (prefers-reduced-motion:reduce){.logo-closing{animation:none}.nav-cta,.ev,.logo-closing{transition:none}.ev-panel{animation:none}}
+
+  /* ===== 折り返し・改行の整備（PC/スマホで文字が切れない・不自然に改行しない） ===== */
+  body{overflow-wrap:break-word;line-break:strict;word-break:auto-phrase}
+  h1,h2,h3,.hero-jp,.hero-sub,.mf-line,.mf-pin,.sec-lead,.vision-foot,.mv-card p,.feature-desc,.feature-tag,.closing-jp,.vw .g,.ev-gloss,.ev-note,.ev-empty,.ev-item p,.lede,.after-msg,.tagline-jp,.ce-gloss{text-wrap:balance}
+  .nb{display:inline-block;max-width:100%}
+  .phil{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -321,7 +327,7 @@
   <div class="bubbles" aria-hidden="true"><span class="bubble b1" style="--c:var(--fire)" data-speed="0.1"><span class="b-in">火</span></span><span class="bubble b2" style="--c:var(--earth)" data-speed="0.16"><span class="b-in">地</span></span><span class="bubble b3" style="--c:var(--water)" data-speed="0.07"><span class="b-in">水</span></span><span class="bubble b4" style="--c:var(--wind)" data-speed="0.13"><span class="b-in">風</span></span><span class="bubble b5" style="--c:var(--sky)" data-speed="0.09"><span class="b-in">空</span></span></div>
   <div class="hero-eyebrow eyebrow reveal">LAFTEL.&nbsp;//&nbsp;Life Design Studio</div>
   <div class="hero-logo reveal"><span class="logo logo-hero" role="img" aria-label="LAFTEL."></span></div>
-  <h1 class="hero-headline rb reveal">Life is&nbsp;Entertainment.</h1>
+  <h1 class="hero-headline rb reveal"><span class="nb">Life is</span> <span class="nb">Entertainment.</span></h1>
   <p class="hero-jp reveal">大切な人と、人生をもっと面白く。</p>
   <p class="hero-sub reveal">正解を探すのではなく、自らの手で、唯一無二の物語を紡ぐ。</p>
   <div class="hero-cta reveal"><a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる <span class="arrow">→</span></a><a class="btn-ghost" href="#events">イベントを見る</a></div>
@@ -377,7 +383,7 @@
   <div class="wrap">
     <div class="sec-label reveal"><span class="bar"></span><span class="eyebrow">Five Circle Philosophy</span><span class="bar"></span></div>
     <h2 class="sec-title reveal"><span class="rb">五輪哲学</span>で、人生の基準を引き上げる。</h2>
-    <p class="sec-lead reveal" style="margin-bottom:18px">ライフデザインスタジオ『 LAFTEL. 』が掲げるのは、世界中のリーダーがバイブルとする伝説のサムライ・宮本武蔵（本名：新免武蔵）の『📜五輪書📜』に流れる思想🧠<br><br>その名を受け継ぐ代表・新免慧大が、4,000社を超える神社仏閣への巡礼⛩と厳しい修行の日々⚔を経て、大自然の理から導き出した【&nbsp;\\\\\ 五輪哲学 /////&nbsp;】という人生の羅針盤。🧭🙏🏽</p>
+    <p class="sec-lead phil reveal" style="margin-bottom:18px"><span class="nb">ライフデザインスタジオ</span><span class="nb">『&nbsp;LAFTEL.&nbsp;』が掲げるのは、</span><span class="nb">世界中のリーダーが</span><span class="nb">バイブルとする</span><span class="nb">伝説のサムライ・宮本武蔵</span><span class="nb">（本名：新免武蔵）の</span><span class="nb">『📜五輪書📜』に</span><span class="nb">流れる思想🧠</span><br><br><span class="nb">その名を受け継ぐ</span><span class="nb">代表・新免慧大が、</span><span class="nb">4,000社を超える</span><span class="nb">神社仏閣への巡礼⛩と</span><span class="nb">厳しい修行の日々⚔を経て、</span><span class="nb">大自然の理から導き出した</span><span class="nb">【&nbsp;\\\\\ 五輪哲学 /////&nbsp;】という</span><span class="nb">人生の羅針盤。🧭🙏🏽</span></p>
     <p class="sec-lead reveal">地・水・火・風・空。5つのライフスタイル・フィロソフィーと、30の指標。Life Design Portfolio で、5つの輪郭をセルフチューニングしていく。</p>
     <div class="circles">
 
