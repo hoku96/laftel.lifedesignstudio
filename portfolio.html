@@ -40,9 +40,9 @@
   .topbar{height:5px;background:var(--rainbow)}
   .pad{padding:34px 32px 34px}
 
-  .logo{display:inline-block;background-image:url("logo.webp");
-    background-size:contain;background-position:center;background-repeat:no-repeat;border-radius:28%;vertical-align:middle;
-    box-shadow:0 5px 14px rgba(21,18,30,.24)}
+  .logo{display:inline-block;background-image:url("logo-sm.webp");aspect-ratio:1983/1818;
+    background-size:contain;background-position:center;background-repeat:no-repeat;vertical-align:middle;
+    filter:drop-shadow(0 3px 6px rgba(255,61,133,.2))}
 
   /* brand */
   .brand{display:flex;align-items:center;gap:10px;justify-content:center}
@@ -117,7 +117,7 @@
   .pill.on{color:#fff;border-color:transparent;transform:translateY(-1px)}
 
   .legend{text-align:center;color:var(--faint);font-size:11.5px;margin-top:16px}
-  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;flex-wrap:wrap;gap:10px}
 
   /* result */
   .rank{text-align:center;margin-top:4px}
@@ -176,7 +176,7 @@
   @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
   @media print{body{background:#fff}.app{box-shadow:none}.nav,.center{display:none !important}}
   .after-cta{text-align:center;margin:30px 0 6px;padding:26px 20px;border-radius:24px;background:linear-gradient(135deg,#FFF1F7,#EEF6FF)}
-  .after-cta .btn{display:inline-block;text-decoration:none;margin-top:6px}
+  .after-cta .btn{display:inline-block;text-decoration:none;margin-top:6px;white-space:normal}
   .after-lab{font-family:var(--dp);font-weight:800;font-size:18px}
   .after-msg{font-size:13.5px;color:var(--muted);margin:8px 0 14px;line-height:1.8;font-weight:500}
   @media print{.after-cta,#shareBtn{display:none !important}}
@@ -186,6 +186,9 @@
   h1,h2,h3,.hero-jp,.hero-sub,.mf-line,.mf-pin,.sec-lead,.vision-foot,.mv-card p,.feature-desc,.feature-tag,.closing-jp,.vw .g,.ev-gloss,.ev-note,.ev-empty,.ev-item p,.lede,.after-msg,.tagline-jp,.ce-gloss{text-wrap:balance}
   .nb{display:inline-block;max-width:100%}
   .phil{text-wrap:pretty}
+  .push-msg,.first-msg,.first-lab,.rank-jp,.cat-gloss,.cat-theme{text-wrap:balance}
+  .btn{white-space:nowrap}
+  @media(max-width:400px){.btn{padding:13px 20px;font-size:14px}}
 </style>
 </head>
 <body>
@@ -196,7 +199,7 @@
     <!-- ============ COVER ============ -->
     <section id="cover" class="fade">
       <div class="brand">
-        <span class="logo" role="img" aria-label="LAFTEL." style="width:30px;height:30px"></span>
+        <span class="logo" role="img" aria-label="LAFTEL." style="width:36px"></span>
         <span class="lt">LAFTEL.</span><span class="college">Life Design Studio</span>
       </div>
       <div class="wordmark">Life Design Portfolio</div>
@@ -253,7 +256,7 @@
     <!-- ============ RESULT ============ -->
     <section id="result" class="hidden">
       <div class="brand" style="justify-content:center">
-        <span class="logo" role="img" aria-label="LAFTEL." style="width:24px;height:24px"></span>
+        <span class="logo" role="img" aria-label="LAFTEL." style="width:28px"></span>
         <span class="wm-sm" style="font-size:17px">Life Design Portfolio</span>
         <span class="college">LAFTEL. · Life Design Studio</span>
       </div>
@@ -289,7 +292,7 @@
       <div class="after-cta">
         <div class="after-lab">あなたの星、輝いてる？</div>
         <p class="after-msg">描いた星は、まだ途中。続きは LAFTEL. の仲間と、遊びながら。</p>
-        <a class="btn" href="https://www.instagram.com/__laftel.lifedesign__/" target="_blank" rel="noopener">公式 Instagram へ →</a>
+        <a class="btn" href="https://www.instagram.com/__laftel.lifedesign__/" target="_blank" rel="noopener">公式 Instagram へ&nbsp;→</a>
       </div>
 
       <div class="nav" style="justify-content:center;gap:14px">
@@ -480,6 +483,25 @@ function renderResult(){
   document.getElementById('firstMsg').textContent=NUDGE[W.key];
 }
 renderProg();
+
+/* 日本語の折り返し：auto-phrase 非対応のブラウザだけ、句読点の位置でだけ改行できるようにする */
+function phrase(root){
+  if(window.CSS&&CSS.supports&&CSS.supports('word-break','auto-phrase'))return;
+  const sel='.mf-line,.mf-pin,.hero-jp,.hero-sub,.sec-lead:not(.phil),.mv-card p,.vw .g,.vision-foot,.feature-desc,.ev-gloss,.ev-note,.after-msg,.push-msg,.first-msg';
+  (root||document).querySelectorAll(sel).forEach(el=>{
+    el.style.wordBreak='keep-all';el.style.overflowWrap='anywhere';
+    const ws=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),ns=[];let n;while(n=ws.nextNode())ns.push(n);
+    ns.forEach(tn=>{
+      if(!/[、。，．！？」』）】]./.test(tn.textContent))return;
+      const parts=tn.textContent.split(/(?<=[、。，．！？」』）】])(?=[^、。，．！？」』）】\s])/);
+      const fr=document.createDocumentFragment();
+      parts.forEach((p,i)=>{if(i)fr.append(document.createElement('wbr'));fr.append(p);});
+      tn.replaceWith(fr);
+    });
+  });
+}
+phrase();
+{const _rr=renderResult;renderResult=function(){_rr.apply(this,arguments);phrase(document.getElementById('result'));};}
 document.getElementById('shareBtn').addEventListener('click',async()=>{
   const b=document.getElementById('shareBtn'),url=location.href.split('#')[0],
     text='私のLife Design Portfolioは '+state.scores.flat().reduce((a,b)=>a+(b||0),0)+' / 150点。あなたの星も見てみよう。';

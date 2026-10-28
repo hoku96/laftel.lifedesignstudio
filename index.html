@@ -60,7 +60,7 @@
 
   .eyebrow{font-family:var(--dp);font-weight:700;font-size:12px;letter-spacing:.26em;color:var(--ink-soft);text-transform:uppercase}
 
-  .hero{position:relative;text-align:center;padding:120px 28px 96px;min-height:82vh;display:flex;
+  .hero{position:relative;text-align:center;padding:96px 20px 80px;min-height:82vh;display:flex;
     flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
   .hero-motif{position:absolute;pointer-events:none;opacity:.9}
   .hero-eyebrow{margin-bottom:34px}
@@ -163,14 +163,13 @@
   .foot-brand{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
   .foot small{display:block;font-family:var(--dp);font-weight:500;font-size:11px;letter-spacing:.1em;color:var(--ink-faint);line-height:2}
 
-  .logo{display:inline-block;background-image:url("logo.webp");
-    background-size:contain;background-position:center;background-repeat:no-repeat;border-radius:26%;vertical-align:middle}
-  .nav-brand .logo{box-shadow:0 6px 16px rgba(21,18,30,.26)}
-  .hero-logo{margin:4px auto 0}
-  .logo-hero{width:min(208px,52vw);height:min(208px,52vw);border-radius:27%;
-    box-shadow:0 26px 52px rgba(21,18,30,.32);animation:bob 6s ease-in-out infinite}
+  .logo{display:inline-block;background-image:url("logo-sm.webp");aspect-ratio:1983/1818;
+    background-size:contain;background-position:center;background-repeat:no-repeat;vertical-align:middle}
+  .nav-brand .logo{filter:drop-shadow(0 4px 8px rgba(255,61,133,.22))}
+  .hero-logo{margin:0 auto;max-width:100%}
+  .logo-hero{background-image:url("logo.webp");width:clamp(270px,72vw,620px);filter:drop-shadow(0 26px 40px rgba(142,91,242,.28));animation:bob 6s ease-in-out infinite}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-  .logo-closing{width:108px;height:108px;border-radius:27%;margin:0 auto 4px;box-shadow:0 18px 40px rgba(0,0,0,.42)}
+  .logo-closing{background-image:url("logo.webp");margin:0 auto 4px;filter:drop-shadow(0 12px 30px rgba(255,255,255,.12))}
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
   .reveal.in{opacity:1;transform:none}
   .star-spin.idle{animation:spin 120s linear infinite}
@@ -206,9 +205,9 @@
     animation:wobble var(--d,6s) ease-in-out infinite;animation-delay:var(--dl,0s)}
   .b1{left:9%;top:20%;--s:70px;--d:6.4s}.b2{right:11%;top:16%;--s:58px;--d:5.6s;--dl:-1.2s}
   .b3{left:15%;bottom:17%;--s:54px;--d:7s;--dl:-2.4s}.b4{right:14%;bottom:21%;--s:76px;--d:6.8s;--dl:-.8s}
-  .b5{left:50%;top:9%;--s:46px;--d:5.2s;--dl:-3s}
+  .b5{left:24%;top:12%;--s:46px;--d:5.2s;--dl:-3s}
   @keyframes wobble{0%,100%{transform:translateY(0) rotate(-6deg) scale(1)}50%{transform:translateY(-22px) rotate(8deg) scale(1.08)}}
-  @media(max-width:700px){.b1{--s:46px;left:4%}.b2{--s:40px;right:5%}.b3{--s:38px;left:6%}.b4{--s:48px;right:5%}.b5{display:none}}
+  @media(max-width:700px){.b3{display:none}.b4{bottom:auto;top:31%}.b1{--s:46px;left:4%}.b2{--s:40px;right:5%}.b3{--s:38px;left:6%}.b4{--s:48px;right:5%}.b5{display:none}}
   .hero>*:not(.bubbles){position:relative;z-index:1}
 
   .ribbon-wrap{overflow:hidden;padding:26px 0}
@@ -294,7 +293,7 @@
 
   .manifesto .mf-line,.manifesto .mf-pin{--base:var(--ink);color:color-mix(in srgb,var(--base) calc(22% + var(--lit,1)*78%),transparent)}
   .manifesto .mf-line.soft{--base:var(--ink-soft)}
-  .logo-closing{width:clamp(150px,30vw,210px);height:clamp(150px,30vw,210px);animation:bob 6s ease-in-out infinite;transition:transform .5s var(--spring)}
+  .logo-closing{width:clamp(220px,52vw,380px);animation:bob 6s ease-in-out infinite;transition:transform .5s var(--spring)}
   .logo-closing:hover{animation-play-state:paused;transform:rotate(-8deg) scale(1.08)}
   @media (prefers-reduced-motion:reduce){.logo-closing{animation:none}.nav-cta,.ev,.logo-closing{transition:none}.ev-panel{animation:none}}
 
@@ -303,6 +302,11 @@
   h1,h2,h3,.hero-jp,.hero-sub,.mf-line,.mf-pin,.sec-lead,.vision-foot,.mv-card p,.feature-desc,.feature-tag,.closing-jp,.vw .g,.ev-gloss,.ev-note,.ev-empty,.ev-item p,.lede,.after-msg,.tagline-jp,.ce-gloss{text-wrap:balance}
   .nb{display:inline-block;max-width:100%}
   .phil{text-wrap:pretty}
+
+  .btn,.btn-ghost,.nav-cta{text-align:center;text-wrap:balance}
+  .arrow{white-space:nowrap}
+  .ev-count,.ev-tag,.chip,.chip-c,.fact,.pill-tag{white-space:nowrap}
+  @media(max-width:400px){.btn{padding:13px 22px;font-size:14px}.btn-ghost{padding:12px 20px}.hero-cta{gap:10px}}
 </style>
 </head>
 <body>
@@ -317,7 +321,7 @@
 
 <nav class="nav">
   <div class="nav-brand">
-    <span class="logo" role="img" aria-label="LAFTEL." style="width:46px;height:46px"></span>
+    <span class="logo" role="img" aria-label="LAFTEL." style="width:52px"></span>
   </div>
   <span class="nav-studio">LAFTEL. // Life Design Studio</span>
   <a class="nav-cta" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">のぞいてみる</a>
@@ -330,7 +334,7 @@
   <h1 class="hero-headline rb reveal"><span class="nb">Life is</span> <span class="nb">Entertainment.</span></h1>
   <p class="hero-jp reveal">大切な人と、人生をもっと面白く。</p>
   <p class="hero-sub reveal">正解を探すのではなく、自らの手で、唯一無二の物語を紡ぐ。</p>
-  <div class="hero-cta reveal"><a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる <span class="arrow">→</span></a><a class="btn-ghost" href="#events">イベントを見る</a></div>
+  <div class="hero-cta reveal"><a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる&nbsp;<span class="arrow">→</span></a><a class="btn-ghost" href="#events">イベントを見る</a></div>
   <a class="scrollcue reveal" href="#manifesto" aria-label="下へスクロール">
     <span>SCROLL</span><span class="line"></span>
   </a>
@@ -360,7 +364,7 @@
 <section class="sec" id="vision">
   <div class="wrap">
     <div class="sec-label reveal"><span class="bar"></span><span class="eyebrow">Mission &amp; Vision</span><span class="bar"></span></div>
-    <h2 class="sec-title reveal">レールを、降りる。<span class="rb">主役</span>を、生きる。</h2>
+    <h2 class="sec-title reveal"><span class="nb">レールを、降りる。</span><span class="nb"><span class="rb">主役</span>を、生きる。</span></h2>
     <div class="mv">
       <div class="mv-card mv-mission reveal">
         <div class="mv-k">MISSION ／ 使命</div>
@@ -382,7 +386,7 @@
 <section class="sec" id="philosophy">
   <div class="wrap">
     <div class="sec-label reveal"><span class="bar"></span><span class="eyebrow">Five Circle Philosophy</span><span class="bar"></span></div>
-    <h2 class="sec-title reveal"><span class="rb">五輪哲学</span>で、人生の基準を引き上げる。</h2>
+    <h2 class="sec-title reveal"><span class="nb"><span class="rb">五輪哲学</span>で、</span><span class="nb">人生の基準を</span><span class="nb">引き上げる。</span></h2>
     <p class="sec-lead phil reveal" style="margin-bottom:18px"><span class="nb">ライフデザインスタジオ</span><span class="nb">『&nbsp;LAFTEL.&nbsp;』が掲げるのは、</span><span class="nb">世界中のリーダーが</span><span class="nb">バイブルとする</span><span class="nb">伝説のサムライ・宮本武蔵</span><span class="nb">（本名：新免武蔵）の</span><span class="nb">『📜五輪書📜』に</span><span class="nb">流れる思想🧠</span><br><br><span class="nb">その名を受け継ぐ</span><span class="nb">代表・新免慧大が、</span><span class="nb">4,000社を超える</span><span class="nb">神社仏閣への巡礼⛩と</span><span class="nb">厳しい修行の日々⚔を経て、</span><span class="nb">大自然の理から導き出した</span><span class="nb">【&nbsp;\\\\\ 五輪哲学 /////&nbsp;】という</span><span class="nb">人生の羅針盤。🧭🙏🏽</span></p>
     <p class="sec-lead reveal">地・水・火・風・空。5つのライフスタイル・フィロソフィーと、30の指標。Life Design Portfolio で、5つの輪郭をセルフチューニングしていく。</p>
     <div class="circles">
@@ -459,7 +463,7 @@
 <section class="sec" id="events">
   <div class="wrap">
     <div class="sec-label reveal"><span class="bar"></span><span class="eyebrow">Five Elements Events</span><span class="bar"></span></div>
-    <h2 class="sec-title reveal">地・水・火・風・空の、<span class="rb">イベント</span>。</h2>
+    <h2 class="sec-title reveal"><span class="nb">地・水・火・風・空の、</span><span class="nb"><span class="rb">イベント</span>。</span></h2>
     <p class="sec-lead reveal">五つの元素に、五つの遊び場。その道を極めた“本物”と、人生をもっと面白がろう。</p>
     <div class="ev-free reveal"><span class="ev-free-badge">参加 無料</span></div>
     <!-- 参加費は無料。実費はイベントごとのため掲載しない。開催日・登壇者は確定後に追記 -->
@@ -502,7 +506,7 @@
     </div>
     <div class="ev-panel" id="evPanel" role="region" aria-live="polite" hidden></div>
     <div class="ev-cta reveal">
-      <a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる <span class="arrow">→</span></a>
+      <a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる&nbsp;<span class="arrow">→</span></a>
     </div>
     <p class="ev-note reveal">開催日・登壇者が決まり次第、Instagram でお知らせします。</p>
   </div>
@@ -528,7 +532,7 @@
           <span class="fact">5 分野</span><span class="fact">30 指標</span><span class="fact">約 5 分</span>
         </div>
         <div class="feature-cta">
-          <a class="btn" href="./portfolio.html">診断をはじめる <span class="arrow">→</span></a>
+          <a class="btn" href="./portfolio.html">診断をはじめる&nbsp;<span class="arrow">→</span></a>
           <a class="btn-ghost" href="#philosophy">五輪哲学を見る</a>
         </div>
       </div>
@@ -539,17 +543,17 @@
 <section class="closing">
   <span class="logo logo-closing reveal" role="img" aria-label="LAFTEL."></span>
   <p class="closing-jp reveal">
-    人生は一度きり。大切な人と、<br>
-    もっと<span class="rb">自由</span>に。もっと<span class="rb">大胆</span>に。もっと<span class="rb">面白く</span>。
+    <span class="nb">人生は一度きり。</span><span class="nb">大切な人と、</span><br>
+    <span class="nb">もっと<span class="rb">自由</span>に。</span><span class="nb">もっと<span class="rb">大胆</span>に。</span><span class="nb">もっと<span class="rb">面白く</span>。</span>
   </p>
   <h2 class="closing-en rb reveal">Life is Entertainment.</h2>
   <div class="closing-base reveal">LAFTEL. // Life Design Studio</div>
-  <div class="closing-cta reveal"><a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる <span class="arrow">→</span></a></div>
+  <div class="closing-cta reveal"><a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる&nbsp;<span class="arrow">→</span></a></div>
 </section>
 
 <footer class="foot">
   <div class="foot-brand">
-    <span class="logo" role="img" aria-label="LAFTEL." style="width:42px;height:42px"></span>
+    <span class="logo" role="img" aria-label="LAFTEL." style="width:48px"></span>
   </div>
   <small>Based in Hawaii</small>
   <small>Life Design Studio　·　天下泰平 ・ 萬民豐樂 ・ 人類兄弟</small>
@@ -635,6 +639,24 @@ if(!reduce){
   addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});upd();
 }
 
+
+/* 日本語の折り返し：auto-phrase 非対応のブラウザだけ、句読点の位置でだけ改行できるようにする */
+function phrase(root){
+  if(window.CSS&&CSS.supports&&CSS.supports('word-break','auto-phrase'))return;
+  const sel='.mf-line,.mf-pin,.hero-jp,.hero-sub,.sec-lead:not(.phil),.mv-card p,.vw .g,.vision-foot,.feature-desc,.ev-gloss,.ev-note,.after-msg,.push-msg,.first-msg';
+  (root||document).querySelectorAll(sel).forEach(el=>{
+    el.style.wordBreak='keep-all';el.style.overflowWrap='anywhere';
+    const ws=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),ns=[];let n;while(n=ws.nextNode())ns.push(n);
+    ns.forEach(tn=>{
+      if(!/[、。，．！？」』）】]./.test(tn.textContent))return;
+      const parts=tn.textContent.split(/(?<=[、。，．！？」』）】])(?=[^、。，．！？」』）】\s])/);
+      const fr=document.createDocumentFragment();
+      parts.forEach((p,i)=>{if(i)fr.append(document.createElement('wbr'));fr.append(p);});
+      tn.replaceWith(fr);
+    });
+  });
+}
+phrase();
 /* events: 元素カードを押すと詳細（events.js の内容）を開く */
 (function(){
   const D=window.LAFTEL_EVENTS||{},panel=document.getElementById('evPanel'),cards=[...document.querySelectorAll('.ev')];
@@ -650,7 +672,7 @@ if(!reduce){
       (i.summary?'<p>'+esc(i.summary)+'</p>':'')+
       ((i.date||i.place||i.specialist)?'<p>'+[i.date,i.place,i.specialist].filter(Boolean).map(esc).join(' ・ ')+'</p>':'')+
       (i.contact?'<a href="'+esc(safe(i.contact.href))+'">'+esc(i.contact.label)+' →</a>':'')+'</div>').join('')
-      :'<p class="ev-empty">'+esc(k)+'のイベントは、準備中。決まり次第、Instagram でお知らせします。<br><a class="btn" href="'+KEITA_URL+'" target="_blank" rel="noopener">Instagram でチェック <span class="arrow">→</span></a></p>';
+      :'<p class="ev-empty">'+esc(k)+'のイベントは、準備中。決まり次第、Instagram でお知らせします。<br><a class="btn" href="'+KEITA_URL+'" target="_blank" rel="noopener">Instagram でチェック&nbsp;<span class="arrow">→</span></a></p>';
     panel.style.setProperty('--c',getComputedStyle(card).getPropertyValue('--c'));
     panel.innerHTML='<div class="ev-panel-head"><span class="ev-panel-k">'+esc(k)+'</span><div><div class="ev-panel-t">'+esc(th)+'</div><div class="ev-panel-g">'+esc(g)+'</div></div><button class="ev-close" type="button">閉じる</button></div>'+body;
     panel.hidden=false;
