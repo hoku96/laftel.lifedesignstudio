@@ -205,8 +205,8 @@
       <div class="wordmark">Life Design Portfolio</div>
       <div class="tagline-jp">磨くほど、星になる。</div>
       <p class="lede">
-        あなたの輝きを、<b>5つの星</b>で見える化。<br>
-        <span class="soft">地・水・火・風・空 ── 人生の5分野を1〜5でセルフチェック。<br>30の質問に答えると、あなただけの星が完成します。</span>
+        <span class="nb">あなたの輝きを、</span><span class="nb"><b>5つの星</b>で</span><span class="nb">見える化。</span><br>
+        <span class="soft"><span class="nb">地・水・火・風・空 ── </span><span class="nb">人生の5分野を</span><span class="nb">1〜5でセルフチェック。</span><br><span class="nb">30の質問に答えると、</span><span class="nb">あなただけの星が</span><span class="nb">完成します。</span></span>
       </p>
       <p class="lede" style="margin-top:18px;margin-bottom:18px">
         <span class="soft phil"><span class="nb">ライフデザインスタジオ</span><span class="nb">『&nbsp;LAFTEL.&nbsp;』が掲げるのは、</span><span class="nb">世界中のリーダーが</span><span class="nb">バイブルとする</span><span class="nb">伝説のサムライ・宮本武蔵</span><span class="nb">（本名：新免武蔵）の</span><span class="nb">『📜五輪書📜』に</span><span class="nb">流れる思想🧠</span><br><br><span class="nb">その名を受け継ぐ</span><span class="nb">代表・新免慧大が、</span><span class="nb">4,000社を超える</span><span class="nb">神社仏閣への巡礼⛩と</span><span class="nb">厳しい修行の日々⚔を経て、</span><span class="nb">大自然の理から導き出した</span><span class="nb">【&nbsp;\\\\\ 五輪哲学 /////&nbsp;】という</span><span class="nb">人生の羅針盤。🧭🙏🏽</span></span>
@@ -291,7 +291,7 @@
 
       <div class="after-cta">
         <div class="after-lab">あなたの星、輝いてる？</div>
-        <p class="after-msg">描いた星は、まだ途中。続きは LAFTEL. の仲間と、遊びながら。</p>
+        <p class="after-msg"><span class="nb">描いた星は、まだ途中。</span><span class="nb">続きは LAFTEL. の仲間と、</span><span class="nb">遊びながら。</span></p>
         <a class="btn" href="https://www.instagram.com/__laftel.lifedesign__/" target="_blank" rel="noopener">公式 Instagram へ&nbsp;→</a>
       </div>
 
@@ -442,6 +442,8 @@ function rankOf(t){
   if(t>=90)return['RISING STAR','伸び盛り。ここからが勝負だ'];
   if(t>=65)return['STAR SEED','芽が出た。磨けば、必ず光る'];
   return['NEW STAR','ここが、STARへの出発点'];}
+/* 動的な文を、読点・句点の位置でだけ折り返せるようにする（文節の途中で切れない） */
+function ph(t){return String(t).split(/(?<=[、。！？])/).filter(Boolean).map(x=>'<span class="nb">'+x.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))+'</span>').join('');}
 function pushMsg(t){
   if(t<65)return '伸びしろだらけ＝伸びる余地だらけ。いちばん暗い星をひとつ選んで、今週から磨きはじめよう。';
   if(t<90)return 'いい形になってきた。STARは磨いた分だけ輝く。伸びしろの分野へ、一歩踏み込め。';
@@ -461,7 +463,7 @@ function renderResult(){
   if(reduce){tn.textContent=t;}else{let c=0;const step=Math.max(1,Math.round(t/40));
     const iv=setInterval(()=>{c+=step;if(c>=t){c=t;clearInterval(iv);}tn.textContent=c;},22);}
   let hi=0;for(let i=1;i<ELEMENTS.length;i++)if(sub(i)>sub(hi))hi=i;const S=ELEMENTS[hi];
-  document.getElementById('pushMsg').innerHTML='あなたの【<b style="color:'+S.color+'">'+S.kanji+'</b>】はよく輝いてる！<br>'+pushMsg(t);
+  document.getElementById('pushMsg').innerHTML='<span class="nb">あなたの【<b style="color:'+S.color+'">'+S.kanji+'</b>】は</span><span class="nb">よく輝いてる！</span><br>'+ph(pushMsg(t));
   const bars=document.getElementById('bars');bars.innerHTML='';
   ELEMENTS.forEach((E,i)=>{const row=document.createElement('div');row.className='bar-row';
     row.innerHTML='<div class="bar-k" style="color:'+E.color+'">'+E.kanji+'</div>'+
@@ -480,7 +482,7 @@ function renderResult(){
       '<div class="grow-dots">'+dots+'</div>';list.appendChild(row);});
   let lo=0;for(let i=1;i<ELEMENTS.length;i++)if(sub(i)<sub(lo))lo=i;const W=ELEMENTS[lo];
   document.getElementById('firstBig').innerHTML='<span class="fk" style="color:'+W.color+'">'+W.kanji+'</span>'+W.en+'　'+W.theme;
-  document.getElementById('firstMsg').textContent=NUDGE[W.key];
+  document.getElementById('firstMsg').innerHTML=ph(NUDGE[W.key]);
 }
 renderProg();
 
