@@ -595,8 +595,8 @@ function drawStar(svg,vals,opts){
   ['#FF4D8D','#FFB13D','#3FD98C','#36A9FF','#9B6BFF'].forEach((c,i)=>lg.appendChild(el('stop',{offset:(i*25)+'%','stop-color':c})));
   defs.appendChild(lg);
   svg.appendChild(defs);
-  svg.appendChild(el('circle',{cx:CX,cy:CY,r:R+44,fill:'#fff'}));
-  svg.appendChild(el('circle',{cx:CX,cy:CY,r:R+44,fill:'none',stroke:'url(#'+svg.id+'_rb)','stroke-width':3,'stroke-opacity':.5}));
+  svg.appendChild(el('circle',{cx:CX,cy:CY,r:R+58,fill:'#fff'}));
+  svg.appendChild(el('circle',{cx:CX,cy:CY,r:R+58,fill:'none',stroke:'url(#'+svg.id+'_rb)','stroke-width':3,'stroke-opacity':.5}));
   svg.appendChild(el('circle',{cx:CX,cy:CY,r:R+24,fill:'#FBFAFF'}));
   ELEMENTS.forEach((E,i)=>{const tri=[polar(E.angle-36,inR),polar(E.angle,R),polar(E.angle+36,inR)];
     svg.appendChild(el('polygon',{points:tri.map(p=>p.map(n=>n.toFixed(1)).join(',')).join(' '),
@@ -614,7 +614,7 @@ function drawStar(svg,vals,opts){
       const c=Math.cos(E.angle*Math.PI/180),s=Math.sin(E.angle*Math.PI/180);
       const ox=tx+c*26,oy=ty+s*26,anc=c>0.3?'start':c<-0.3?'end':'middle';
       const k=el('text',{x:ox.toFixed(1),y:(oy+(s<-0.3?-3:12)).toFixed(1),'text-anchor':anc,
-        'font-family':"'Zen Maru Gothic',sans-serif",'font-weight':900,'font-size':16,fill:E.color});
+        'font-family':"'Zen Maru Gothic',sans-serif",'font-weight':900,'font-size':21,fill:E.color});
       k.textContent=E.kanji;svg.appendChild(k);
     }
   });
