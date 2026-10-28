@@ -1,4 +1,4 @@
-/* イベント情報の置き場。登壇者・日時が決まったら、該当する元素の items に足すだけで反映される。
+/* 体験の情報の置き場（サイト上では「体験」と呼ぶ）。登壇者・日時が決まったら、該当する元素の items に足すだけで反映される。
    items の形：{ title, summary, date, place, specialist, contact:{label,href} }（無い項目は省略可） */
 window.LAFTEL_EVENTS = {
   earth: { items: [

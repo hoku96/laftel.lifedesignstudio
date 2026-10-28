@@ -288,6 +288,7 @@
   .ev-item a{display:inline-block;margin-top:10px;font-weight:700;font-size:13px;color:color-mix(in srgb,var(--c) 70%,var(--ink))}
   .ev-empty{margin-top:18px;font-size:14px;color:var(--ink-soft);line-height:1.9;font-weight:500}
   .ev-empty .btn{margin-top:14px}
+  .ev-soon{font-family:var(--dp);font-weight:800;font-size:22px;letter-spacing:.04em;color:var(--c)}
   .ev-note{text-align:center;font-size:12.5px;color:var(--ink-faint);margin-top:16px;font-weight:500}
   @media(max-width:620px){.ev-panel{padding:24px 20px}}
 
@@ -314,6 +315,12 @@
   .nav.scrolled{background:rgba(255,248,241,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
     box-shadow:0 8px 24px rgba(42,36,64,.08);padding-top:9px;padding-bottom:9px}
   .nav-brand .logo{width:46px!important}
+  .nav-links{display:flex;gap:4px}
+  .nav-links a{font-family:var(--jp);font-weight:700;font-size:13.5px;color:var(--ink);text-decoration:none;padding:8px 14px;border-radius:999px;transition:background .25s,transform .4s var(--spring)}
+  .nav-links a:hover{background:rgba(255,255,255,.85);transform:translateY(-2px)}
+  .nav-links a:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+  .nav{gap:6px}.nav-studio{margin-left:0;margin-right:auto}.nav-links{margin-left:auto}
+  @media(max-width:620px){.nav-links a{padding:8px 10px;font-size:13px}.nav-cta{padding:8px 14px}}
   .sec,.hero{scroll-margin-top:70px}
   @media (prefers-reduced-motion:reduce){.nav{transition:none}}
 </style>
@@ -333,6 +340,7 @@
     <span class="logo" role="img" aria-label="LAFTEL." style="width:52px"></span>
   </div>
   <span class="nav-studio">LAFTEL. // Life Design Studio</span>
+  <div class="nav-links"><a href="#events">体験</a><a href="#portfolio">診断</a></div>
   <a class="nav-cta" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">のぞいてみる</a>
 </nav>
 
@@ -343,7 +351,7 @@
   <h1 class="hero-headline rb reveal"><span class="nb">Life is</span> <span class="nb">Entertainment.</span></h1>
   <p class="hero-jp reveal">大切な人と、人生をもっと面白く。</p>
   <p class="hero-sub reveal">正解を探すのではなく、自らの手で、唯一無二の物語を紡ぐ。</p>
-  <div class="hero-cta reveal"><a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる&nbsp;<span class="arrow">→</span></a><a class="btn-ghost" href="#events">イベントを見る</a></div>
+  <div class="hero-cta reveal"><a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる&nbsp;<span class="arrow">→</span></a><a class="btn-ghost" href="#events">体験を見る</a></div>
   <a class="scrollcue reveal" href="#manifesto" aria-label="下へスクロール">
     <span>SCROLL</span><span class="line"></span>
   </a>
@@ -471,53 +479,53 @@
 
 <section class="sec" id="events">
   <div class="wrap">
-    <div class="sec-label reveal"><span class="bar"></span><span class="eyebrow">Five Elements Events</span><span class="bar"></span></div>
-    <h2 class="sec-title reveal"><span class="nb">地・水・火・風・空の、</span><span class="nb"><span class="rb">イベント</span>。</span></h2>
+    <div class="sec-label reveal"><span class="bar"></span><span class="eyebrow">Five Elements Experiences</span><span class="bar"></span></div>
+    <h2 class="sec-title reveal"><span class="nb">地・水・火・風・空の、</span><span class="nb"><span class="rb">体験</span>。</span></h2>
     <p class="sec-lead reveal">五つの元素に、五つの遊び場。その道を極めた“本物”と、人生をもっと面白がろう。</p>
     <div class="ev-free reveal"><span class="ev-free-badge">参加 無料</span></div>
-    <!-- 参加費は無料。実費はイベントごとのため掲載しない。開催日・登壇者は確定後に追記 -->
+    <!-- 参加費は無料。実費は体験ごとのため掲載しない。日時・登壇者は確定後に追記 -->
     <div class="evs">
       <div class="ev reveal" style="--c:var(--fire)" data-key="fire" role="button" tabindex="0" aria-expanded="false" aria-controls="evPanel">
         <span class="ev-kanji" aria-hidden="true">火</span>
         <div class="ev-en">FIRE</div>
         <div class="ev-theme">情熱・創造</div>
         <div class="ev-gloss">やりたいこと・自分らしさ</div>
-        <div class="ev-tag">Specialist Event</div>
+        <div class="ev-tag">Coming soon</div>
       </div>
       <div class="ev reveal" style="--c:var(--earth)" data-key="earth" role="button" tabindex="0" aria-expanded="false" aria-controls="evPanel">
         <span class="ev-kanji" aria-hidden="true">地</span>
         <div class="ev-en">EARTH</div>
         <div class="ev-theme">基盤・豊かさ</div>
         <div class="ev-gloss">お金・住まい・体</div>
-        <div class="ev-tag">Specialist Event</div>
+        <div class="ev-tag">Coming soon</div>
       </div>
       <div class="ev reveal" style="--c:var(--water)" data-key="water" role="button" tabindex="0" aria-expanded="false" aria-controls="evPanel">
         <span class="ev-kanji" aria-hidden="true">水</span>
         <div class="ev-en">WATER</div>
         <div class="ev-theme">関係・心</div>
         <div class="ev-gloss">人とのつながり・心の余裕</div>
-        <div class="ev-tag">Specialist Event</div>
+        <div class="ev-tag">Coming soon</div>
       </div>
       <div class="ev reveal" style="--c:var(--wind)" data-key="wind" role="button" tabindex="0" aria-expanded="false" aria-controls="evPanel">
         <span class="ev-kanji" aria-hidden="true">風</span>
         <div class="ev-en">WIND</div>
         <div class="ev-theme">体験・行動</div>
         <div class="ev-gloss">旅・新しい挑戦・影響力</div>
-        <div class="ev-tag">Specialist Event</div>
+        <div class="ev-tag">Coming soon</div>
       </div>
       <div class="ev reveal" style="--c:var(--sky)" data-key="sky" role="button" tabindex="0" aria-expanded="false" aria-controls="evPanel">
         <span class="ev-kanji" aria-hidden="true">空</span>
         <div class="ev-en">SKY / VOID</div>
         <div class="ev-theme">在り方</div>
         <div class="ev-gloss">生き方・価値観</div>
-        <div class="ev-tag">Specialist Event</div>
+        <div class="ev-tag">Coming soon</div>
       </div>
     </div>
     <div class="ev-panel" id="evPanel" role="region" aria-live="polite" hidden></div>
     <div class="ev-cta reveal">
       <a class="btn btn-pop" href="https://www.instagram.com/keita.shinmen_137/" target="_blank" rel="noopener">LAFTEL. をのぞいてみる&nbsp;<span class="arrow">→</span></a>
     </div>
-    <p class="ev-note reveal">開催日・登壇者が決まり次第、Instagram でお知らせします。</p>
+    <p class="ev-note reveal">体験の詳細が決まり次第、Instagram でお知らせします。</p>
   </div>
 </section>
 
@@ -674,7 +682,7 @@ phrase();
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const safe=h=>/^(https:\/\/|mailto:)/.test(h)?h:'#';
   cards.forEach(c=>{const n=((D[c.dataset.key]||{}).items||[]).length;
-    if(n){const s=document.createElement('span');s.className='ev-count';s.textContent='イベント '+n+' 件';c.appendChild(s);}});
+    if(n){c.querySelector('.ev-tag').textContent='体験 '+n+' 件';}});
   function open(card){
     cards.forEach(c=>c.setAttribute('aria-expanded',String(c===card)));
     const items=(D[card.dataset.key]||{}).items||[];
@@ -683,7 +691,7 @@ phrase();
       (i.summary?'<p>'+esc(i.summary)+'</p>':'')+
       ((i.date||i.place||i.specialist)?'<p>'+[i.date,i.place,i.specialist].filter(Boolean).map(esc).join(' ・ ')+'</p>':'')+
       (i.contact?'<a href="'+esc(safe(i.contact.href))+'">'+esc(i.contact.label)+' →</a>':'')+'</div>').join('')
-      :'<p class="ev-empty">'+esc(k)+'のイベントは、準備中。決まり次第、Instagram でお知らせします。<br><a class="btn" href="'+KEITA_URL+'" target="_blank" rel="noopener">Instagram でチェック&nbsp;<span class="arrow">→</span></a></p>';
+      :'<p class="ev-empty"><b class="ev-soon">Coming soon</b><br>'+esc(k)+'の体験は、準備中です。決まり次第、Instagram でお知らせします。<br><a class="btn" href="'+KEITA_URL+'" target="_blank" rel="noopener">Instagram でチェック&nbsp;<span class="arrow">→</span></a></p>';
     panel.style.setProperty('--c',getComputedStyle(card).getPropertyValue('--c'));
     panel.innerHTML='<div class="ev-panel-head"><span class="ev-panel-k">'+esc(k)+'</span><div><div class="ev-panel-t">'+esc(th)+'</div><div class="ev-panel-g">'+esc(g)+'</div></div><button class="ev-close" type="button">閉じる</button></div>'+body;
     panel.hidden=false;
